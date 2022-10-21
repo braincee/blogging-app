@@ -1,24 +1,72 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Ruby on Rails Blog App
 
-Things you may want to cover:
+> The Blog app is a classic example of a blog website. This is a fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking those posts.
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby
+- Ruby on Rails
+- CSS
+- PostgreSQL
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy up and running follow these simple example steps.
 
-* Database initialization
+### Setup
 
-* How to run the test suite
+- clone the repository
+`git clone `
+- navigate to the folder
+`cd Blog-application`
 
-* Services (job queues, cache servers, search engines, etc.)
+### Prerequisites
 
-* Deployment instructions
+- Ruby
+- Ruby on Rails 
+- CSS
 
-* ...
+### Install
+
+Run in the terminal to install the gems:
+
+`bundle install`
+
+### Usage
+
+To run the Rails server, in the terminal: 
+
+`rails server`
+
+## Author
+
+👤 **Stephen Annor**
+
+- GitHub: [braincee](https://github.com/braincee)
+- Twitter: [annor0543](https://twitter.com/annor0543)
+- LinkedIn: [Stephen Annor](https://www.linkedin.com/stephen-annor)
+
+
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.
