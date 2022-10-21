@@ -7,4 +7,9 @@ class Post < ApplicationRecord
         author.post_counter = author.posts.count 
         Author.find(author.id).update(post_counter: author.posts.count)
     end
+
+    def most_recent_comment
+        comments.last(5)
+    end
 end
+
