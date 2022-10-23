@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-    @author_1 = Author.new(name: 'Steve', bio: 'Rails Developer', posts_counter: 3)
+    new_author = Author.new(name: 'Steve', bio: 'Rails Developer', posts_counter: 3)
 
     subject  do 
-         Post.new(author: @author_1, title: 'Ruby', text: 'Practice', likes_counter: 3, comments_counter: 4)
+         Post.new(author: new_author, title: 'Ruby', text: 'Practice', likes_counter: 3, comments_counter: 4)
     end
 
     before { subject.save }
