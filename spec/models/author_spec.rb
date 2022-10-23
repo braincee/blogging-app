@@ -29,4 +29,9 @@ RSpec.describe Author, type: :model do
     expected_posts = 0
     expect(subject.most_recent_posts.count).to eq(expected_posts)
   end
+
+  it 'should return posts < 5' do
+      value = subject.most_recent_posts.length
+      expect(value).to be < 5
+  end
 end
