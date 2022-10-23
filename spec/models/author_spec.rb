@@ -18,7 +18,7 @@ RSpec.describe Author, type: :model do
   it 'should return post counter must be >=0' do
     subject.posts_counter = -2
     expect(subject).to_not be_valid
-  end 
+  end
 
   it 'should return posts less than 5' do
     total_posts = subject.most_recent_posts.length
@@ -31,7 +31,7 @@ RSpec.describe Author, type: :model do
   end
 
   it 'should return posts < 5' do
-      value = subject.most_recent_posts.length
-      expect(value).to be < 5
+    value = subject.most_recent_posts.length
+    expect(value).to be < 5
   end
 end
