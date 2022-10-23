@@ -15,12 +15,12 @@ RSpec.describe Post, type: :model do
   end
 
   it 'should return a max of 250 characters' do
-    subject.title = "Gloria"
+    subject.title = 'Gloria'
     expect(subject).to_not be_valid
   end
 
   it 'should return likes counter as integer' do
-    subject.likes_counter = "seven"
+    subject.likes_counter = 'seven'
     expect(subject).to_not be_valid
   end
 

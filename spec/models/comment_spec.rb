@@ -11,7 +11,7 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'should return author_id is an integer' do
-    subject.author_id = "Steve"
+    subject.author_id = 'Steve'
     expect(subject).to_not be_valid
   end
 
