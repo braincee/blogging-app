@@ -1,6 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :post
   belongs_to :author
+  after_save :like_counter
 
   def likes_counter
     post.likes_counter = post.likes.count
