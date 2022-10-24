@@ -6,12 +6,10 @@ RSpec.describe 'Posts', type: :request do
       get posts_index_path
       expect(response).to have_http_status(:ok)
     end
-
     it 'should render index template' do
       get posts_index_path
       expect(response).to render_template(:index)
     end
-
     it 'should return text response body' do
       get posts_index_path
       expect(response.body).to include('Here is a list of posts of a given User')
@@ -23,7 +21,6 @@ RSpec.describe 'Posts', type: :request do
       get posts_show_path
       expect(response).to have_http_status(:ok)
     end
-
     it 'should render index template' do
       get posts_show_path
       expect(response).to render_template(:show)
