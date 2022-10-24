@@ -25,9 +25,13 @@ RSpec.describe 'Users', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-      it 'should render index template' do
+      it 'should render show template' do
       get users_show_path
       expect(response).to render_template(:show)
   end
+   it 'should return text in response body' do
+      get users_show_path
+      expect(response.body).to include('Here is details of specific User')
+    end
   end
 end
