@@ -11,5 +11,10 @@ RSpec.describe 'Posts', type: :request do
       get posts_index_path
       expect(response).to render_template(:index)
     end
+
+     it 'should return text response body' do
+      get posts_index_path
+      expect(response.body).to include('Here is a list of posts of a given User')
+    end
  end
 end
