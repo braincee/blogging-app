@@ -24,5 +24,10 @@ RSpec.describe 'Users', type: :request do
       get users_show_path
       expect(response).to have_http_status(:ok)
     end
+
+      it 'should render index template' do
+      get users_show_path
+      expect(response).to render_template(:show)
+  end
   end
 end
