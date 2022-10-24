@@ -17,9 +17,12 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- clone the repository
+- Clone the repository
+
 `git clone `
-- navigate to the folder
+
+- Navigate to the folder
+- 
 `cd Blog-application`
 
 ### Prerequisites
@@ -39,6 +42,14 @@ Run in the terminal to install the gems:
 To run the Rails server, in the terminal: 
 
 `rails server`
+
+
+### Testing with RSpec
+
+- To install rspec: gem install rspec
+- To test: rspec
+- To test specific folder: rspec spec/requests
+- To test specific file: rspec spec/requests/filename_spec.rb
 
 ## Author
 
