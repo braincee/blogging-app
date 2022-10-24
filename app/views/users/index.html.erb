@@ -1,0 +1,10 @@
+<h1>Here is a list of all Users</h1>
+
+<div>
+    <% @users.each  do |u| %>
+    <p>Username: <%= u.name %></p>
+    <p>Bio: <%= u.bio %></p>
+    <p>Post Counter: <%= u.posts_counter %></p>
+    <p>Photo: <%= u.photo %></p>
+    <% end %>
+</div>
