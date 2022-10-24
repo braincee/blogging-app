@@ -28,5 +28,10 @@ RSpec.describe 'Posts', type: :request do
       get posts_show_path
       expect(response).to render_template(:show)
     end
+
+     it 'should return text in response body' do
+      get posts_show_path
+      expect(response.body).to include('Here are details of a given user post')
+    end
  end
 end
