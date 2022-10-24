@@ -13,9 +13,16 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template(:index)
     end
 
-     it 'returns text in response body' do
+     it 'should render text in response body' do
       get users_index_path
       expect(response.body).to include('Display the list of all Users')
     end
  end
+
+  describe 'GET #show' do
+     it 'should render success message' do
+      get users_show_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
