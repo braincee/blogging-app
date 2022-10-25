@@ -1,1 +1,11 @@
 <h2>Here is details of specific User</h2>
+
+<div>
+  <img />
+  <div>
+    <h1><%= link_to @user.name, controller: 'posts', user_id: @user %> </h1>
+    <p>Number of posts: <%= @user.posts_counter%></p>
+  </div>
+</div>
+<h3><%= @user.bio%></h3>
+</div>
