@@ -1,15 +1,97 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  padding: 1% 5%;
+  box-sizing: border-box;
+}
+
+/* User Index */
+.user-index {
+  display: flex;
+  gap: 7%;
+  margin-bottom: 20px;
+}
+
+.user-index img {
+  width: 20%;
+  height: 9rem;
+  border: 1px solid rgba(7, 7, 7, 0.87);
+}
+
+.user-index div {
+  position: relative;
+  border: 2px solid rgba(7, 7, 7, 0.87);
+  width: 60%;
+  height: 90px;
+  align-self: center;
+  padding: 0 20px;
+}
+
+.user-index div p,
+.recent-post div p {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+}
+
+/* User show */
+.bio {
+  border: 1px solid rgba(0, 0, 0, 0.849);
+  height: 9rem;
+  padding: 12px;
+  width: 70rem;
+}
+
+.recent-post div {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.918);
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: 70rem;
+}
+
+/* post index */
+.recent-post .recent-comments {
+  margin-bottom: 0;
+}
+
+.recent-post .comments {
+  margin-bottom: 15px;
+}
+
+.recent-post .button {
+  border: none;
+  display: flex;
+  margin-top: 1.3rem;
+  justify-content: center;
+}
+
+.recent-post .button button {
+  padding: 0.3rem;
+  box-shadow: 0.1rem 0.1rem;
+  background-color: rgba(255, 255, 255, 0.856);
+}
+
+/* post show */
+
+.single-post {
+  border: 0.15rem solid rgba(0, 0, 0, 0.836);
+  padding: 0 0.6rem;
+  min-height: 50vh;
+  margin-bottom: 0.15rem;
+}
+
+.single-post div {
+  display: flex;
+  position: relative;
+}
+
+.single-post div p {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.single-comment {
+  border: 1px solid rgba(0, 0, 0, 0.877);
+  padding: 0 10px;
+  min-height: 20vh;
+}
