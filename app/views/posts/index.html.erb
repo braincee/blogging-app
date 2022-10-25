@@ -1,1 +1,26 @@
-<h1>Here is a list of posts of a given User</h1>
+<h1>Display details of all User Posts</h1>
+
+<div class='user-index'>
+  <img  alt='profile image'/>
+  <div>
+    <h1 class='username'><%= @user.name%> </h1>
+    <p>Number of posts: <%= @user.posts_counter%></p>
+  </div>
+</div>
+<div class='recent-post'>
+  <% @posts.each do |post| %>
+    <div class='recent-comments'>
+      <h2><%= link_to post.title, user_post_path(post.user, post)%> </h2>
+      <h3><%= post.text%></h3>
+      <p>Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter%></p>
+    </div>
+    <div class='comments'>
+      <% post.recent_comments.each do |comment| %>
+        <h3><%= @users.find(comment.user_id).name%>: <%= comment.text%> </h3>
+      <% end%>
+    </div>
+  <%end %>
+  <div class='button'> 
+    <button type='button'>Pagination</button>
+  </div>
+</div> 

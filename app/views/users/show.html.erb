@@ -1,1 +1,24 @@
-<h2>Here is details of specific User</h2>
+<h2>Display details of specific User</h2>
+
+<div class = 'user-index'>
+  <img  alt="profile image"/>
+  <div>
+    <h1 class = 'username'><%= link_to @user.name, controller: 'posts', user_id: @user %> </h1>
+    <p>Number of posts: <%= @user.posts_counter%></p>
+  </div>
+</div>
+<h3 class = 'bio'><%= @user.bio%></h3>
+<div class = 'recent-post'>
+  <% @user.most_recent_posts.each do |post| %>
+    <div>
+      <h2><%= link_to post.title, user_post_path(post.user, post)%> </h2>
+      <h3><%= post.text%></h3>
+      <p>Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter%></p>
+    </div>
+  <%end %>
+  <% if @user.most_recent_posts.length > 3%>
+    <div class = 'button'> 
+      <button type = 'button'>See all posts</button>
+    </div>
+  <%end%>
+</div>
