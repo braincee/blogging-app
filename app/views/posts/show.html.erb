@@ -1,14 +1,14 @@
-<h1>Here are details of a given user post</h1>
+<h2>Display details of a given user post</h2>
 
-<div>
+<div class = 'single-post'>
   <div>
-    <h1><%= @post.title%> by <%= @user.name%> </h1>
+    <h3><%= @post.title%> by <%= @user.name%> </h3>
     <p>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter%></p>
   </div>
-  <h3><%= @post.text%></h3>
+  <p><%= @post.text%></p>
 </div>
-<div>
+<div class = 'single-comment'>
   <% @post.comments.each do |comment| %>
-    <h3><%= @users.find(comment.user_id).name%>: <%= comment.text%> </h3>
+    <p><%= @users.find(comment.user_id).name%>: <%= comment.text%> </p>
   <% end%>
 </div>
