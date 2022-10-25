@@ -1,1 +1,15 @@
 <h1>Display the list of all Users</h1>
+
+<div>
+<% @users.each do |user| %>
+<div>
+<img />
+<div>
+<h6>
+<%= link_to user.name, controller: 'users', id: user, action: 'show'%>
+</h6>
+<p>Number of posts: <% user.posts_counter %></p>
+</div>
+</div>
+<% end %>
+</div>
