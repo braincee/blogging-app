@@ -5,4 +5,21 @@ class CommentsController < ActionController
             format.html { render :new, locals: { comment: } } 
         end
     end
+
+     def create
+        post = Post.find(params[:post_id])
+        comment.new(text: params[:text], user: current_user, post:)
+        response_to do |format|
+            format.html do 
+                if comment.save
+                    comment.update_post_counter
+                    flash[:success] = 'New comment added'
+                    redirect_to '/users/#{params[:user_id]}/posts/#{post.id}'
+                else
+                    flash.now[:error] = 'Error: Comment could not be saved'
+                    render :new, locals: { comment: }
+                end
+            end
+        end
+    end
 end
