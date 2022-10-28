@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.html do
         if like.save
-          like.counter_updater
+          like.like_counter
           flash[:notice] = 'Liked'
           redirect_to "/users/#{user.id}/posts/#{post.id}"
         else

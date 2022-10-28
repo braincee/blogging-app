@@ -12,7 +12,7 @@ class CommentsController < ActionController
         response_to do |format|
             format.html do 
                 if comment.save
-                    comment.update_post_counter
+                    comment.comment_counter
                     flash[:success] = 'New comment added'
                     redirect_to '/users/#{params[:user_id]}/posts/#{post.id}'
                 else

@@ -17,8 +17,7 @@
     </div>
     <div class='comments p-3'>
       <% post.recent_comments.each do |comment| %>
-        <h5><%= @users.find(comment.user_id).name%>: <%= comment.text%> </h5>
+        <h5><%= comment.user.name%>: <%= comment.text%> </h5>
       <% end%>
     </div>
   <%end %>
-  
