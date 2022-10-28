@@ -4,8 +4,8 @@
 <% @users.each do |user| %>
 <div class = 'user-index'>
 <img  alt="profile image"/>
-<div>
-<h2><%= link_to user.name, controller: 'users', id: user, action: 'show' %></h2>
+<div class = 'p-2'>
+<h3><%= link_to user.name, controller: 'users', id: user, action: 'show' %></h3>
 <p>Number of posts: <% user.posts_counter %></p>
 </div>
 </div>

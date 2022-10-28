@@ -11,8 +11,8 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality:
     { only_integer: true, greater_than_or_equal_to: 0 }
 
-  def post_update_counter
-    user.increment!(:posts_counter)
+  def update_post_counter
+    user.update(posts_counter: user.posts.length)
   end
 
   def recent_comments

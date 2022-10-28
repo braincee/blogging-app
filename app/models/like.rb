@@ -4,7 +4,6 @@ class Like < ApplicationRecord
   after_save :like_counter
 
   def like_counter
-    post.likes_counter = post.likes.count
-    Post.find(post.id).update(likes_counter: post.likes)
+    post.update(likes_counter: post.likes.length)
   end
 end
