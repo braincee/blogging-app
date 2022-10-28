@@ -12,7 +12,7 @@ class Post < ApplicationRecord
     { only_integer: true, greater_than_or_equal_to: 0 }
 
   def update_post_counter
-   user.update(posts_counter: user.posts.length)
+    user.update(posts_counter: user.posts.length)
   end
 
   def recent_comments
