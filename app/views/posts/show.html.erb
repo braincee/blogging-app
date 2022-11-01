@@ -2,18 +2,18 @@
 
 <div class = 'single-post p-3'>
   <div>
-    <h3><%= @post.title%> by <%= @post.user.name%> </h3>
-    <p>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter%></p>
+    <h3><%= @user_post.title%> by <%= @user_post.user.name%> </h3>
+    <p>Comments: <%= @user_post.comments_counter%>, Likes: <%= @user_post.likes_counter%></p>
   </div>
-  <p><%= @post.text%></p>
+  <p><%= @user_post.text%></p>
 </div>
 <div class = 'single-comment p-3'>
-  <% @post.comments.each do |comment| %>
+  <% @user_post.comments.each do |comment| %>
     <p><%= comment.user.name%>: <%= comment.text%> </p>
   <% end%>
 </div>
 
 <div class='mt-3'>
-  <%= render "comments/form", user_id: @user_id, post_id: @post.id %>
-  <%= render "likes/form", user_id: @user_id, like_id: @like %>
+  <%= render "comments/form", user_id: @user_id, post_id: @user_post.id %>
+  <%= render "likes/form", user_id: @user_id, like_id: @user_like %>
 </div>

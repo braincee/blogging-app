@@ -2,7 +2,7 @@
 
 <%= link_to "Add New Post", new_user_post_path, class: 'btn btn-primary text-white mb-3' %>
 <div class='user-index'>
-  <img  alt='profile image'/>
+  <img  alt='profile-image'/>
   <div class = 'p-2'>
     <h3 class='username'><%= @user.name%> </h3>
     <p>Number of posts: <%= @user.posts_counter%></p>
@@ -19,5 +19,5 @@
       <% post.recent_comments.each do |comment| %>
         <h5><%= comment.user.name%>: <%= comment.text%> </h5>
       <% end%>
-    </div>
+  </div>
   <%end %>
