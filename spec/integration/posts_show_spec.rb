@@ -32,17 +32,3 @@ RSpec.describe 'Posts show page', type: :feature do
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
