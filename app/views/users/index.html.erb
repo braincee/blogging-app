@@ -1,13 +1,16 @@
 <h1>Display the list of all Users</h1>
 
 <div class ='user-info'>
-<% @users.each do |user| %>
+  <% @users.each do |user| %>
 <div class = 'user-index'>
-<img  alt="profile image"/>
+<img  alt="profile-image"/>
 <div class = 'p-2'>
 <h3><%= link_to user.name, controller: 'users', id: user, action: 'show' %></h3>
-<p>Number of posts: <% user.posts_counter %></p>
+<p> Number of posts: <% user.posts_counter %></p>
 </div>
 </div>
 <% end %>
+ <div class= 'mt-3'>
+   <button>Pagination</button>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 <h2>Display details of specific User</h2>
 
 <div class = 'user-index'>
-  <img  alt="profile image"/>
+  <img  alt="profile-image"/>
   <div class = 'p-2'>
     <h2 class = 'username'><%= link_to @user.name, controller: 'posts', user_id: @user %> </h2>
     <p>Number of posts: <%= @user.posts_counter%></p>
