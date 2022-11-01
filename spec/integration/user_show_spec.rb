@@ -4,15 +4,11 @@ RSpec.describe 'User Show Page', type: :feature do
   before :each do
     @first_user = User.create(name: 'Steve', bio: 'Full-Stack Developer', posts_counter: 0)
 
-    @first_post = Post.create(title: 'First Post', text: 'My first post', user_id: @first_user.id, 
-        comments_counter: 0, likes_counter: 0)
-    @second_post = Post.create(title: 'Second Post', text: 'My second post', user_id: @first_user.id, 
-        comments_counter: 0, likes_counter: 0)
-    @third_post = Post.create(title: 'Third Post', text: 'My third post', user_id: @first_user.id, 
-        comments_counter: 0, likes_counter: 0)
-    @fourth_post = Post.create(title: 'Fourth Post', text: 'My last post', user_id: @first_user.id, 
-        comments_counter: 0, likes_counter: 0)
-    @fourth_post.update_post_counter
+    @post1 = Post.create(title: 'one', text: 'post1', user_id: @first_user.id, comments_counter: 0, likes_counter: 0)
+    @post2 = Post.create(title: 'two', text: 'post2', user_id: @first_user.id, comments_counter: 0, likes_counter: 0)
+    @post3 = Post.create(title: 'Third', text: 'post3', user_id: @first_user.id, comments_counter: 0, likes_counter: 0)
+    @post4 = Post.create(title: 'Fourth', text: 'post4', user_id: @first_user.id, comments_counter: 0, likes_counter: 0)
+    @post4.update_post_counter
   end
 
   it 'can see the the profile image for a user' do
