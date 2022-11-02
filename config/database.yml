@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: blogging-app
+  database: blogging-app-05
   pool: 5
   host: localhost
   username: postgres
@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: blogging-app-test
+  database: blogging-app-test-05
   pool: 5
   username: postgres
   password: annor0543
