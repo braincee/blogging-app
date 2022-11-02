@@ -1,19 +1,17 @@
-<h2>Display details of a given user post</h2>
-
-<div class = 'single-post p-3'>
+<h1>Here are the details of a given user's post</h1>
+<div class='single-post p-3'>
   <div>
     <h3><%= @user_post.title%> by <%= @user_post.user.name%> </h3>
     <p>Comments: <%= @user_post.comments_counter%>, Likes: <%= @user_post.likes_counter%></p>
   </div>
-  <p><%= @user_post.text%></p>
+  <%= render "likes/form", user_id: @user_id, post_id: @user_post.id %>
+  <h4 class='mt-3'><%= @user_post.text%></h4>
 </div>
-<div class = 'single-comment p-3'>
+<div class='single-post-comments p-3'>
   <% @user_post.comments.each do |comment| %>
-    <p><%= comment.user.name%>: <%= comment.text%> </p>
+    <h5><%= comment.user.name%>: <%= comment.text%> </h5>
   <% end%>
 </div>
-
 <div class='mt-3'>
   <%= render "comments/form", user_id: @user_id, post_id: @user_post.id %>
-  <%= render "likes/form", user_id: @user_id, like_id: @user_like %>
-</div>
+<div>

@@ -1,16 +1,12 @@
-<h1>Display the list of all Users</h1>
-
-<div class ='user-info'>
-  <% @users.each do |user| %>
-<div class = 'user-index'>
-<img  alt="profile-image"/>
-<div class = 'p-2'>
-<h3><%= link_to user.name, controller: 'users', id: user, action: 'show' %></h3>
-<p> Number of posts: <% user.posts_counter %></p>
-</div>
-</div>
-<% end %>
- <div class= 'mt-3'>
-   <button>Pagination</button>
-  </div>
-</div>
+<%# <h1>Here is a list all users</h1> %>
+<%# <div class='user-info'> %>
+  <%# <% @users.each do |user| %> %>
+    <%# <div class='user-top'> %>
+      <%# <img class='profile-img' alt='Profile'/> %>
+      <%# <div class='p-2'> %>
+        <%# <h3 class='username'><%= link_to user.name, controller: 'users', action: 'show', id: user %> </h2> %>
+        <%# <p>Number of posts: <%= user.post_counter%></p> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# <%end %> %>
+<%# <div> %>

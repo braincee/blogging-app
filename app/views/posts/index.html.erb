@@ -1,23 +1,26 @@
-<h2>Display details of all User Posts</h2>
-
+<h1>Here is a list of posts for a given user</h1>
 <%= link_to "Add New Post", new_user_post_path, class: 'btn btn-primary text-white mb-3' %>
-<div class='user-index'>
-  <img  alt='profile-image'/>
-  <div class = 'p-2'>
-    <h3 class='username'><%= @user.name%> </h3>
-    <p>Number of posts: <%= @user.posts_counter%></p>
+<div class='user-top'>
+  <img class='profile-img' alt='Profile'/>
+  <div class='p-2'>
+    <h2 class='username'><%= @user.name%> </h2>
+    <p>Number of posts: <%= @user.post_counter%></p>
   </div>
 </div>
-<div class='recent-post'>
-  <% @posts.each do |post| %>
-    <div class='recent-comments p-2'>
-      <h3><%= link_to post.title, user_post_path(post.user, post)%> </h3>
+<div class='post-info'>
+  <% @user_posts.each do |post| %>
+    <div class='post-with-comments p-2'>
+      <h3><%= link_to post.title, [post.user, post]%> </h3>
       <h4><%= post.text%></h4>
       <p>Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter%></p>
     </div>
     <div class='comments p-3'>
-      <% post.recent_comments.each do |comment| %>
+      <% post.last_five_comments.each do |comment| %>
         <h5><%= comment.user.name%>: <%= comment.text%> </h5>
       <% end%>
-  </div>
+    </div>
   <%end %>
+  <div class='button'> 
+    <button type='button'>Pagination</button>
+  </div>
+</div>

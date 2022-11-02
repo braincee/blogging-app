@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-  padding: 50px;
+  padding: 1% 5%;
   box-sizing: border-box;
 }
 
@@ -9,20 +9,20 @@ a {
   text-decoration: none;
 }
 
-.user-index {
+.user-top {
   display: flex;
   gap: 7%;
   margin-bottom: 20px;
 
   img {
     width: 20%;
-    height: 9rem;
-    border: 1px solid rgba(7, 7, 7, 0.87);
+    height: 100px;
+    border: 2px solid black;
   }
 
   div {
     position: relative;
-    border: 2px solid rgba(7, 7, 7, 0.87);
+    border: 2px solid black;
     width: 60%;
     height: 90px;
     align-self: center;
@@ -36,14 +36,7 @@ a {
   }
 }
 
-.bio {
-  border: 1px solid rgba(0, 0, 0, 0.849);
-  height: 9rem;
-  padding: 12px;
-  width: 70rem;
-}
-
-.recent-post {
+.post-info {
   div {
     p {
       position: absolute;
@@ -52,13 +45,13 @@ a {
     }
 
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.918);
+    border: 2px solid black;
     margin-bottom: 10px;
     padding: 0 10px;
-    width: 70rem;
+    width: 90%;
   }
 
-  .recent-comments {
+  .post-with-comments {
     margin-bottom: 0;
   }
 
@@ -69,22 +62,29 @@ a {
   .button {
     border: none;
     display: flex;
-    margin-top: 1.3rem;
+    margin-top: 20px;
     justify-content: center;
 
     button {
-      padding: 0.3rem;
-      box-shadow: 0.1rem 0.1rem;
-      background-color: rgba(255, 255, 255, 0.856);
+      padding: 5px;
+      box-shadow: 5px 5px;
+      background-color: white;
     }
   }
 }
 
+.user-bio {
+  border: 2px solid black;
+  height: 150px;
+  padding: 10px;
+  width: 90%;
+}
+
 .single-post {
-  border: 0.15rem solid rgba(0, 0, 0, 0.836);
-  padding: 0 0.6rem;
+  border: 2px solid black;
+  padding: 0 10px;
   min-height: 50vh;
-  margin-bottom: 0.15rem;
+  margin-bottom: 2px;
 
   div {
     display: flex;
@@ -98,8 +98,8 @@ a {
   }
 }
 
-.single-comment {
-  border: 1px solid rgba(0, 0, 0, 0.877);
+.single-post-comments {
+  border: 2px solid black;
   padding: 0 10px;
   min-height: 20vh;
 }
