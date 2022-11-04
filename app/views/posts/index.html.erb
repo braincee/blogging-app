@@ -1,26 +1,45 @@
-<h1>Here is a list of posts for a given user</h1>
-<%= link_to "Add New Post", new_user_post_path, class: 'btn btn-primary text-white mb-3' %>
-<div class='user-top'>
-  <img class='profile-img' alt='Profile'/>
-  <div class='p-2'>
-    <h2 class='username'><%= @user.name%> </h2>
-    <p>Number of posts: <%= @user.post_counter%></p>
-  </div>
-</div>
-<div class='post-info'>
-  <% @user_posts.each do |post| %>
-    <div class='post-with-comments p-2'>
-      <h3><%= link_to post.title, [post.user, post]%> </h3>
-      <h4><%= post.text%></h4>
-      <p>Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter%></p>
+<div class="page_container">
+  <%= button_to "logout", destroy_author_session_path, method: :delete  %>
+  <div class="author_container">
+    <div class="image_placeholder">
+      <img src=<%= @author.photo%> alt="" >
     </div>
-    <div class='comments p-3'>
-      <% post.last_five_comments.each do |comment| %>
-        <h5><%= comment.user.name%>: <%= comment.text%> </h5>
-      <% end%>
+    <div class="details">
+      <h1><%= @author.name %></h1>
+      <p>Number of posts: <%= @author.posts_counter %></p>
     </div>
-  <%end %>
-  <div class='button'> 
-    <button type='button'>Pagination</button>
   </div>
+
+  <%= form_with model: @new_post, url: author_posts_url, html: {class: "add_post_form"} do |form| %>
+    <%= form.label(:title, "Title:") %>
+    <%= form.text_field(:title) %>
+    <%= form.label(:text, "Text:") %>
+    <%= form.text_field(:text) %>
+    <%= form.submit("Create Post") %>
+  <% end %>
+
+  <% @posts.each do |a| %>
+  <div class="posts">
+    <a class="link" href='/authors/<%= @author.id %>/posts/<%= a.id%>'>
+      <h4>Post #<%= (@author.posts.find_index(a) + 1)%>: <%= a.title  %></h4>
+    </a>
+    <p><%= a.text %></p>
+    <div class="stats">
+      <%= form_with url: "/addlike/#{a.id}" do |form| %>
+        <%= form.submit("Add Like") %>
+      <% end %>
+      <p>Comments: <%= a.comments_counter %>,</p>
+      <p>Likes: <%= a.likes_counter %></p>
+    </div>
+  </div>
+  <% if a.recent_comments.empty? %>
+  <% else %>
+    <div class="comments">
+      <% a.recent_comments.each do |comment| %>
+        <p class="comment_texts"><%= Author.find(comment.author_id).name%>: <%= comment.text%> </p>
+      <% end %>
+    </div>
+  <% end %>
+  <% end %>
+  <button class="button">Pagination</button>
 </div>
