@@ -1,26 +1,12 @@
 class LikesController < ApplicationController
-  def new
-    like = Like.new
-    respond_to do |format|
-      format.html { render :new, locals: { like: } }
-    end
-  end
-
-  def create
-    user = User.find(params[:user_id])
-    post = Post.find(params[:post_id])
-    like = Like.new(user:, post:)
-    respond_to do |format|
-      format.html do
-        if like.save
-          like.counter_updater
-          flash[:success] = 'Liked'
-          redirect_to "/users/#{user.id}/posts/#{post.id}"
-        else
-          flash.now[:error] = 'Error: Like could not be saved'
-          render :new, locals: { like: }
-        end
-      end
+  def add_like
+    @liked_post = Post.find(params[:id])
+    like = Like.new(post: @liked_post, author: current_author)
+    if Like.exists?(author: current_author, post: @liked_post)
+      like.destroy
+    else
+      like.save
+      redirect_to "/authors/#{@liked_post.author_id}/posts"
     end
   end
 end

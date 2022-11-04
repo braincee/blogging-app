@@ -1,23 +1,18 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :authors, controllers: {
+    confirmation: 'confirmation'
+  }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  devise_scope :user do
-    authenticated :user do
-      root to: 'users#index'
-    end
-    unauthenticated :user do
-      root to: 'devise/registrations#new', as: :unauthenticated_root
-    end
-  end
+  
+  resources :authors, only: [:index, :show] do
+    resources :posts, only: [:index, :show, :new, :create]
+end
 
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :create, :new, :show] do
-      resources :comments, only: [:create, :new]
-      resources :likes, only: [:create, :new]
-    end
-  end
+get '/posts/:id/newcomment', to: "comments#new_comment"
+post '/addcomment/:id', to: "comments#add_comment"
+post '/addlike/:id', to: "likes#add_like"
+root "authors#index"
+
 end

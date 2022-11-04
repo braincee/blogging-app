@@ -1,31 +1,17 @@
 class CommentsController < ApplicationController
-  def new
-    comment = Comment.new
-    respond_to do |format|
-      format.html { render :new, locals: { comment: } }
-    end
+  def new_comment
+    @id = current_author.id
+    @post = Post.find(params[:id])
   end
 
-  def create
-    post = Post.find(params[:post_id])
-    comment = post.comments.new(comment_params.merge(user: current_user))
-    respond_to do |format|
-      format.html do
-        if comment.save
-          comment.counter_updater
-          flash[:success] = 'New comment added'
-          redirect_to "/users/#{params[:user_id]}/posts/#{post.id}"
-        else
-          flash.now[:error] = 'Error: Comment could not be saved'
-          render :new, locals: { comment: }
-        end
-      end
+  def add_comment
+    @commented_post = Post.find(params[:id])
+    comment = Comment.new(text: params[:text], author: current_author, post: @commented_post)
+    if comment.save
+      flash[:success] = 'success'
+    else
+      flash[:danger] = 'Error'
     end
-  end
-
-  private
-
-  def comment_params
-    params.permit(:text)
+    redirect_to "/authors/#{@commented_post.author_id}/posts/#{params[:id]}"
   end
 end
