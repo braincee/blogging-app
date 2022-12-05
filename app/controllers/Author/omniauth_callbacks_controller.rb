@@ -1,3 +1,4 @@
-class Author::OmniauthCallbacksController < Devise::OmniauthCallbacksController
- 
+module Author
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  end
 end

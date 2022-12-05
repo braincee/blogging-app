@@ -1,3 +1,4 @@
-class Author::PasswordsController < Devise::PasswordsController
-  
+module Author
+  class PasswordsController < Devise::PasswordsController
+  end
 end

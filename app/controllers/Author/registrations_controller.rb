@@ -1,3 +1,4 @@
-class Author::RegistrationsController < Devise::RegistrationsController
- 
+module Author
+  class RegistrationsController < Devise::RegistrationsController
+  end
 end

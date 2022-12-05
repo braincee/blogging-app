@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAuthor < ActiveRecord::Migration[7.0]
   def change
     create_table :authors do |t|
@@ -6,7 +8,7 @@ class CreateAuthor < ActiveRecord::Migration[7.0]
       t.text :bio
       t.integer :posts_counter
 
-      t.timestamps 
+      t.timestamps
     end
   end
 end

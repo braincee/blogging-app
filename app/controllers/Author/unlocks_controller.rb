@@ -1,3 +1,4 @@
-class Author::UnlocksController < Devise::UnlocksController
-  
+module Author
+  class UnlocksController < Devise::UnlocksController
+  end
 end

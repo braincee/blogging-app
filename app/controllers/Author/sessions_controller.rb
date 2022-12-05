@@ -1,3 +1,4 @@
-class Author::SessionsController < Devise::SessionsController
-  
+module Author
+  class SessionsController < Devise::SessionsController
+  end
 end
