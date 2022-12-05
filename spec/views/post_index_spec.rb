@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'post_index', type: :feature do
   describe 'test for author show' do

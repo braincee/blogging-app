@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   def add_like
     @liked_post = Post.find(params[:id])

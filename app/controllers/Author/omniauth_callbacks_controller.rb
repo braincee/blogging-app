@@ -1,3 +1,6 @@
-class Author::OmniauthCallbacksController < Devise::OmniauthCallbacksController
- 
+# frozen_string_literal: true
+
+module Author
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  end
 end

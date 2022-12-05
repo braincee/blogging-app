@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   belongs_to :author, foreign_key: 'author_id'
   has_many :comments
