@@ -1,0 +1,33 @@
+<div class="page_container">
+  <div class="author_container">
+    <div class="image_placeholder">
+      <img src=<%= @author.photo%> alt="" >
+    </div>
+    <div class="details">
+      <h1><%= @author.name %></h1>
+      <p>Number of posts: <%= @author.posts_counter %></p>
+    </div>
+  </div>
+  <div class="bio">
+    <%= @author.bio %>
+  </div>
+  <% @author.most_recent_posts.each do |a| %>
+  <div class="posts">
+    <h4>
+      <a class="single_post" href="/authors/<%= @author.id %>/posts/<%= a.id %>">
+        Post #<%= (@author.posts.find_index(a) + 1)  %>
+      </a>
+    </h4>
+    <p><%= a.text %></p>
+    <div class="stats">
+      <p>Comments: <%= a.comments_counter %>,</p>
+      <p>Likes: <%= a.likes_counter %></p>
+    </div>
+  </div>
+  <% end %>
+  <button class="button">
+    <a class="link" href='/authors/<%= @author.id %>/posts'>
+    See All Posts
+    </a>
+  </button>
+</div>

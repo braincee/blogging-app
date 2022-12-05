@@ -44,12 +44,20 @@ To run the Rails server, in the terminal:
 `rails server`
 
 
-### Testing with RSpec
+### Testing with RSpec 
 
 - To install rspec: gem install rspec
 - To test: rspec
 - To test specific folder: rspec spec/requests
 - To test specific file: rspec spec/requests/filename_spec.rb
+
+### Testing with Capybara 
+
+- To install rspec: gem install rspec
+- To test: rspec
+- To test specific folder: rspec spec/integration
+- To test specific file: rspec spec/integration/filename_spec.rb
+  
 
 ## Author
 

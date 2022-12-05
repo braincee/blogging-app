@@ -1,0 +1,172 @@
+.page_container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.author_container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.image_placeholder {
+  margin: auto;
+
+  img {
+    border: 1px solid black;
+    height: 20vh;
+    width: 20vw;
+    object-fit: contain;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border: 1px solid black;
+  height: 20vh;
+  width: 60vw;
+
+  h1 {
+    margin-left: 2vw;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  p {
+    float: right;
+    margin-left: 40vw;
+    font-size: 18px;
+  }
+}
+
+.bio {
+  margin: auto;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  width: 88.5vw;
+}
+
+.posts {
+  margin: auto;
+  margin-bottom: 1px;
+  width: 87vw;
+  padding: 1px;
+  border: 1px solid black;
+  height: 20vh;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  margin-left: 70%;
+
+  p {
+    margin-left: 20px;
+  }
+}
+
+.button {
+  margin: auto;
+  border: 1px solid black;
+  padding: 5px;
+  width: 10vw;
+  box-shadow: 3px 5px black;
+  background: none;
+
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.comments {
+  border: 1px solid black;
+  width: 65vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  .comment_texts {
+    margin: auto;
+  }
+}
+
+.full_post {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+
+  p {
+    margin: auto;
+  }
+
+  .header_info {
+    margin-left: 0;
+  }
+
+  .header_comments {
+    margin-right: 0;
+  }
+
+  .header_likes {
+    margin-left: 10px;
+  }
+}
+
+.all_comments {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+.add_post_form {
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto 20px;
+}
+
+.new_author {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 50%;
+  margin: auto;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  margin: 2% 0;
+
+  input {
+    margin: auto;
+    width: 80%;
+    padding: 5px;
+    background: none;
+  }
+}
+
+.actions {
+  display: flex;
+  margin: 2% 0;
+
+  input {
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 3px 5px black;
+    background: none;
+    width: 80%;
+    margin: auto;
+  }
+}

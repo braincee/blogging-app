@@ -1,1 +1,45 @@
-<h1>Here is a list of posts of a given User</h1>
+<div class="page_container">
+  <%= button_to "logout", destroy_author_session_path, method: :delete  %>
+  <div class="author_container">
+    <div class="image_placeholder">
+      <img src=<%= @author.photo%> alt="" >
+    </div>
+    <div class="details">
+      <h1><%= @author.name %></h1>
+      <p>Number of posts: <%= @author.posts_counter %></p>
+    </div>
+  </div>
+
+  <%= form_with model: @new_post, url: author_posts_url, html: {class: "add_post_form"} do |form| %>
+    <%= form.label(:title, "Title:") %>
+    <%= form.text_field(:title) %>
+    <%= form.label(:text, "Text:") %>
+    <%= form.text_field(:text) %>
+    <%= form.submit("Create Post") %>
+  <% end %>
+
+  <% @posts.each do |a| %>
+  <div class="posts">
+    <a class="link" href='/authors/<%= @author.id %>/posts/<%= a.id%>'>
+      <h4>Post #<%= (@author.posts.find_index(a) + 1)%>: <%= a.title  %></h4>
+    </a>
+    <p><%= a.text %></p>
+    <div class="stats">
+      <%= form_with url: "/addlike/#{a.id}" do |form| %>
+        <%= form.submit("Add Like") %>
+      <% end %>
+      <p>Comments: <%= a.comments_counter %>,</p>
+      <p>Likes: <%= a.likes_counter %></p>
+    </div>
+  </div>
+  <% if a.recent_comments.empty? %>
+  <% else %>
+    <div class="comments">
+      <% a.recent_comments.each do |comment| %>
+        <p class="comment_texts"><%= Author.find(comment.author_id).name%>: <%= comment.text%> </p>
+      <% end %>
+    </div>
+  <% end %>
+  <% end %>
+  <button class="button">Pagination</button>
+</div>

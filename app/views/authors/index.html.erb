@@ -1,0 +1,17 @@
+<div class="page_container">
+  <% @authors.each do |a| %>
+  <div class="author_container">
+    <div class="image_placeholder">
+      <img src=<%= a.photo%> alt="" >
+    </div>
+    <div class="details">
+      <h1>
+        <a href='/authors/<%= a.id %>' class="author_link">
+        <%= a.name %>
+      </a>
+      </h1>
+      <p>Number of posts: <%= a.posts_counter %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BloggingApp</title>
+    <title>BlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,8 @@
   </head>
 
   <body>
+  <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p> <ul> <% if author_signed_in? %> <li><%= link_to "Hi, #{current_author.name}", edit_author_registration_path %></li> <li><%= button_to "logout", destroy_author_session_path(current_author), method: :delete %></li> <% else %> <li><%= link_to 'Sign In', new_author_session_path %></li> <li><%= link_to 'Sign Up', new_author_registration_path %></li> <% end %> </ul> 
+
     <%= yield %>
   </body>
 </html>

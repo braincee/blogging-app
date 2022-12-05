@@ -1,46 +1,94 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  new_author = Author.new(name: 'Steve', bio: 'Rails Developer', posts_counter: 3)
+  let(:the_author) { Author.create!(name: 'Mustard', photo: 'https://via.placeholder.com/150', bio: 'Hello Rails', posts_counter: 0) }
+  let(:the_post) do
+    Post.new(
+      author: the_author,
+      title: 'Mustard Title', text: 'Mustard Text',
+      comments_counter: 0, likes_counter: 0
+    )
+  end
+  let(:comment2) { Comment.new(author: the_author, post: the_post, text: 'c1') }
+  let(:comment2) { Comment.new(author: the_author, post: the_post, text: 'c2') }
+  let(:comment3) { Comment.new(author: the_author, post: the_post, text: 'c3') }
+  let(:comment4) { Comment.new(author: the_author, post: the_post, text: 'c4') }
+  let(:comment5) { Comment.new(author: the_author, post: the_post, text: 'c5') }
+  let(:comment6) { Comment.new(author: the_author, post: the_post, text: 'c6') }
 
-  subject do
-    Post.new(author: new_author, title: 'Ruby', text: 'Practice', likes_counter: 3, comments_counter: 4)
+  context 'the title of the post validation tests' do
+    it 'it should have a value' do
+      the_post.title = nil
+      expect(the_post).to_not be_valid
+    end
+
+    it 'cannot be longer than 250 characters' do
+      the_post.title = 'a' * 251
+      expect(the_post).to_not be_valid
+    end
   end
 
-  before { subject.save }
+  context 'post comment counter validation tests' do
+    it 'it should have a value' do
+      the_post.comments_counter = nil
+      expect(the_post).to_not be_valid
+    end
 
-  it 'should return title is nil' do
-    subject.title = nil
-    expect(subject).to_not be_valid
+    it 'it is a positive integer' do
+      the_post.comments_counter = -20.5
+      expect(the_post).to_not be_valid
+    end
+
+    it 'it accepts only integers' do
+      [0, 10].each do |counter|
+        the_post.comments_counter = counter
+        expect(the_post).to be_valid
+      end
+    end
   end
 
-  it 'should return a max of 250 characters' do
-    subject.title = 'Gloria'
-    expect(subject).to_not be_valid
+  context 'post like counter validation tests' do
+    it 'has some value' do
+      the_post.likes_counter = nil
+      expect(the_post).to_not be_valid
+    end
+
+    it 'it should bean a positive integer' do
+      the_post.likes_counter = -20.5
+      expect(the_post).to_not be_valid
+    end
+
+    it 'it accepts only positive integers' do
+      [0, 10].each do |counter|
+        the_post.likes_counter = counter
+        expect(the_post).to be_valid
+      end
+    end
   end
 
-  it 'should return likes counter as integer' do
-    subject.likes_counter = 'seven'
-    expect(subject).to_not be_valid
-  end
+  context 'recent comments method tests' do
+    it 'returns empty list if there is no comments' do
+      expect(the_post.recent_comments).to eq []
+    end
 
-  it 'should return comments_counter must be >=0' do
-    subject.comments_counter = -4
-    expect(subject).to_not be_valid
-  end
+    it 'it should return only the five most recent comments in the right order' do
+      comment2.save!
+      comment2.save!
+      comment3.save!
+      comment4.save!
+      comment5.save!
+      comment6.save!
 
-  it 'should return likes_counter must be >=0' do
-    subject.likes_counter = -2
-    expect(subject).to_not be_valid
-  end
-
-  it 'should return zero post comment' do
-    recent_comments = 0
-    expect(subject.recent_comments.count).to eql(recent_comments)
-  end
-
-  it 'should return comments < 5 ' do
-    value = subject.recent_comments.length
-    expect(value).to be < 5
+      the_post.reload
+      actual_comments = the_post.recent_comments.pluck(:text)
+      expected_comments = [
+        comment6.text,
+        comment5.text,
+        comment4.text,
+        comment3.text,
+        comment2.text
+      ]
+      expect(actual_comments).to eq expected_comments
+    end
   end
 end
