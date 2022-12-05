@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Author
   class ConfirmationsController < Devise::ConfirmationsController
     private

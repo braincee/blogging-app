@@ -1,14 +1,5 @@
 class PostsController < ApplicationController
   def index
-<<<<<<< HEAD
-    @user = User.find(params[:user_id])
-    @posts = @user.posts
-  end
-
-  def show
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
-=======
     @author = Author.find(params[:author_id])
     @posts = @author.posts.includes(:comments)
   end
@@ -31,6 +22,5 @@ class PostsController < ApplicationController
     else
       flash[:error] = 'Error'
     end
->>>>>>> 039dd38db74a45de2216cca827d5a69347ab0909
   end
 end
